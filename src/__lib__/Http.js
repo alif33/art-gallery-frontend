@@ -2,7 +2,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 
 const api = axios.create({
-  baseURL: "http://localhost:4000/api",
+  baseURL: "https://apiartgallery.vercel.app/api",
 });
 
 export default async (method, endPoint, formData, token) => {
