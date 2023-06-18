@@ -3,62 +3,25 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/Signup";
 import Layout from "./pages/layout";
-import RequireAuth from "./requireAuth";
+import Auth from "./Auth";
 import UserList from "./pages/layout/userList/userList";
 import ArtsList from "./pages/layout/artsList/artsList";
 import Artist from "./pages/layout/artist/artist";
 import FunFacts from "./pages/layout/funfacts/funfacts";
-import Artworks from "./pages/clients/Artworks";
-import Artists from "./pages/clients/Artists";
-import Explore from "./pages/clients/Explore";
-import Favorites from "./pages/clients/Favorites";
-import More from "./pages/clients/More";
-
-const routes = [
-  { path: "/signin", component: <Login />, protectedPath: false },
-  { path: "/signup", component: <Signup />, protectedPath: false },
-  { path: "/", component: <Artworks />, protectedPath: false },
-  { path: "/artists", component: <Artists />, protectedPath: false },
-  { path: "/explore", component: <Explore />, protectedPath: false },
-  { path: "/favorites", component: <Favorites />, protectedPath: false },
-  { path: "/more", component: <More />, protectedPath: false },
-  {
-    path: "dashboard",
-    component: <Layout />,
-    protectedPath: false,
-    childRoutes: [
-      { path: "", component: <UserList />, protectedPath: false },
-      { path: "artsList", component: <ArtsList />, protectedPath: false },
-      { path: "funfacts", component: <FunFacts />, protectedPath: false },
-      {
-        path: "artist",
-        component: <Artist />,
-        protectedPathF: false,
-      },
-    ],
-  },
-];
 
 const AppRouting = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {routes.map(({ path, component, childRoutes, protectedPath }) => (
-          <Route
-            key={Math.random()}
-            path={path}
-            element={
-              <RequireAuth protectedPath={protectedPath}>
-                {component}
-              </RequireAuth>
-            }
-          >
-            {childRoutes?.length > 0 &&
-              childRoutes.map(({ path, component }) => (
-                <Route key={Math.random()} path={path} element={component} />
-              ))}
-          </Route>
-        ))}
+        <Route path="/dashboard" element={<Layout />}>
+          <Route path="" element={<Auth><UserList /></Auth>}/>
+          <Route path="artist" element={<Auth><Artist /></Auth>}/>
+          <Route path="artsList" element={<Auth><ArtsList /></Auth>}/>
+          <Route path="funfacts" element={<Auth><FunFacts /></Auth>}/>
+        </Route>
+
+        <Route path="/signup" element={<Signup/>} />
+        <Route path="/signin" element={<Login />} />
         <Route path="*" element={<Navigate to="/not-found" />} />
       </Routes>
     </BrowserRouter>
