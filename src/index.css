@@ -1,18 +1,139 @@
-*{
-  margin: 0;
-  padding: 0;
-}
-
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  overflow-y: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.bg-auth {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  height: 100vh;
+  background: #ffffff;
+}
+
+.auth-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.auth-header .lock-icon{
+  padding: 10px;
+  border-radius: 18px;
+  background-color: rgb(25, 75, 67);
+}
+
+.auth-form {
+  width: 400px;
+  padding-top: 50px;
+}
+
+input[type="email"] {
+  height: 45px;
+} 
+
+input[type="password"] {
+  height: 45px;
+}
+
+.btn-submit {
+  width: 100%;
+  color: #ffffff;
+  background-color: rgb(25, 75, 67);
+}
+
+.auth-form a{
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.sidebar {
+  width: 18%;
+}
+
+.top-sidebar {
+  display: flex;
+  color: #ffffff;
+  background-color: rgb(25, 75, 67);
+  padding: 15px 0px 13px 5px;
+}
+
+.sidebar ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.sidebar ul li.active{
+  background-color: rgb(25, 75, 67);
+}
+
+.sidebar ul li a{
+  display: block;
+  color: #000000;
+  text-decoration: none;
+  padding: 10px 0px 10px 40px;
+}
+
+.sidebar ul li a.active{
+  color: #ffffff;
+}
+
+.sidebar ul li a span{
+  line-height: 20px !important;
+}
+
+.main-body {
+  width: 82%;
+  margin-left: 1px;
+  background-color: #e9ecef;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.body-header {
+  color: #ffffff;
+  background-color: rgb(25, 75, 67);
+  height: 60px;
+}
+
+.content {
+  width: 95%;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.table-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.table-bar button {
+  border: 1px solid #e9ecef;
+  background-color: #ffffff;
+  padding: 8px 12px;
+}
+
+.insert-form {
+  width: 400px;
+  height: 400px;
+  background-color: #ffffff;
+}
+
