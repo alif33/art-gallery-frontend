@@ -12,7 +12,7 @@ const FunFacts =()=> {
     const [artists, setArtists] = useState([])
     const [modalIsOpen, setIsOpen] = useState(false)
     const [title, setTitle] = useState()  
-    const [artImage, setArtImage] = useState()  
+    const [image, setImage] = useState()  
     const [artist, setArtist] = useState()
     const [disabled, setDisabled] = useState()
     const [loading, setLoading] = useState(true)
@@ -61,7 +61,7 @@ const FunFacts =()=> {
     const handleSubmit = async e =>{
         e.preventDefault()
         if (title && artist) {
-            HTTP('POST', '/funfact', { title, artist })
+            HTTP('POST', '/funfact', { title, image, artist })
             .then(res=>{
               if (res.success) {
                 fetchFunFacts()
@@ -129,14 +129,14 @@ const FunFacts =()=> {
                                             components={{ Option }}
                                         />
                                     </div>
-                                    {/* <div className="form-group mt-3">
+                                    <div className="form-group mt-3">
                                         <input 
                                             type="file" 
                                             className="form-control" 
                                             accept="image/*"
-                                            onChange={e=>uploadImage(e, setArtImage, setDisabled)}
+                                            onChange={e=>uploadImage(e, setImage, setDisabled)}
                                         />
-                                    </div> */}
+                                    </div>
                                     <button type="submit" className="btn btn-submit mt-3">Save</button>
                                 </form>
                             </>}
